@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="F92EKaP2VZPoYs5AU56EqdZMzF3tnFr9YehXwPuwLgk" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Smart Notes</title>
+    <link rel="icon" type="image/png" href="static/images/favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="static/images/THE SMART NOTES LOGO.png" alt="The Smart Notes Logo" class="logo">
+        <nav>
+            <ul class="nav-right slide-in">
+                <li><a href="about.html">About</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms & Conditions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="disclaimer.html">Disclaimer</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero fade-in">
+            <h2>Welcome to The Smart Notes</h2>
+            <p>Your ultimate resource for well-structured academic notes, helping students and professionals enhance their knowledge efficiently.</p>
+        </section>
+
+        <!-- Search Bar Section -->
+        <section class="search-section fade-in">
+            <h2>Search Notes</h2>
+            <input type="text" id="search-bar" placeholder="Search for notes..." onkeyup="searchNotes()">
+            <ul id="search-results"></ul>
+        </section>
+
+        <section class="features slide-in">
+            <h2>Why Choose The Smart Notes?</h2>
+            <ul>
+                <li><strong>Comprehensive Coverage:</strong> Notes available for various disciplines, professionally curated for your success.</li>
+                <li><strong>Easy Accessibility:</strong> Download PDFs and access structured learning materials with ease.</li>
+                <li><strong>High-Quality Resources:</strong> Expert-created notes for exams, assignments, and research.</li>
+                <li><strong>Free & Open Access:</strong> No subscriptions – just quality education for everyone.</li>
+            </ul>
+        </section>
+
+        <section class="subjects fade-in">
+            <h2>Explore Categories</h2>
+            <div class="subject-list">
+                <a href="cs.html" class="subject-button">Computer Science</a>
+                <a href="EC.html" class="subject-button">Electronics & Communication</a>
+                <a href="IC.html" class="subject-button">Industrial Chemistry</a>
+            </div>
+
+            <!-- Highlighted Section for CS Projects -->
+            <div class="highlight-box">
+                <h2 style="color: #FF5733;">🔥 Free Computer Science Projects with Reports! 🔥</h2>
+                <p>Looking for **FREE Computer Science projects** with reports? We provide complete project materials to help you succeed.</p>
+                <p><strong>✅ Source code, Documentation & Report</strong></p>
+                <p><strong>📞 <a href="contact.html" style="color: #007BFF;">Contact us here</a> for project details.</strong></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="slide-in">
+        <p>&copy; 2025 TheSmartNotes. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // List of PDFs and their respective pages
+        const pdfs = [
+            { title: "Java Notes", page: "java.html" },
+            { title: "ML, Machine Learning", page: "python.html" },
+            { title: "Python Notes", page: "python.html" },
+            { title: "Design and Analysis of Algorithms Notes", page: "daa.html" },
+            { title: "Python Programming Notes", page: "python.html" },
+            { title: "Java Programming Notes", page: "java.html" },
+            { title: "Theory of Computation Notes", page: "TOC.html" },
+            { title: "SQL (Structured Query Language)", page: "sql.html" },
+            { title: "Data Structures & Algorithms (DSA)", page: "dsa.html" },
+            { title: "Art of Programming (AOP)", page: "aop.html" },
+            { title: "CSS - Cascading Style Sheets", page: "css.html" },
+            { title: "Discrete Mathematics", page: "dm.html" },
+            { title: "Data Structures", page: "ds.html" },
+            { title: "Analog & Digital Electronics (ADE)", page: "ade.html" },
+            { title: "DC Motor", page: "dc_motor.html" },
+            { title: "Differential Equations", page: "diff_equation.html" },
+            { title: "Problem Solving and Programming (PPS)", page: "pps.html" },
+            { title: "Heterocyclic Chemistry", page: "heterocyclic.html" },
+            { title: "Spectroscopy", page: "spectroscopy.html" },
+            { title: "Polymer Science", page: "polymer.html" },
+            { title: "Question paper, QP", page: "TOC.html" },
+            { title: "Heterocyclic Compounds", page: "heterocyclic_compounds.html" }
+        ];
+
+        function searchNotes() {
+            let query = document.getElementById("search-bar").value.toLowerCase();
+            let results = document.getElementById("search-results");
+            results.innerHTML = "";
+            
+            if (query.length > 0) {
+                let filtered = pdfs.filter(pdf => pdf.title.toLowerCase().includes(query));
+                filtered.forEach(pdf => {
+                    let listItem = document.createElement("li");
+                    listItem.innerHTML = `<a href="${pdf.page}" target="_blank">${pdf.title}</a>`;
+                    results.appendChild(listItem);
+                });
+                
+                if (filtered.length === 0) {
+                    results.innerHTML = "<li>No results found</li>";
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Styling for the Highlighted Section */
+        .highlight-box {
+            background-color: #FFF4E5;
+            border-left: 5px solid #FF5733;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</body>
+</html>
